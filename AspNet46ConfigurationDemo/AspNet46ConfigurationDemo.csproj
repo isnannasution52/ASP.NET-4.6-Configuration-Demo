@@ -104,6 +104,8 @@
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Configuration\EnvironmentVariablesConfiguration.cs" />
+    <Compile Include="Configuration\ConfigurationBuilder.cs" />
+    <Compile Include="Configuration\TextFileConfiguration.cs" />
     <Compile Include="Configuration\WebConfigConfiguration.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -114,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Config.ini" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

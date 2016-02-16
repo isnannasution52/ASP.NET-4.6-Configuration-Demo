@@ -10,17 +10,41 @@ namespace AspNet46ConfigurationDemo
         public static void Setup()
         {
             // I used AutoFac to setup the IoC container, but could have been something else like Castle or Ninject, etc.
-
             var builder = new ContainerBuilder();
-            
+
+
+            // 1. DECORATOR PATTERN:
+            // -------------------------
+            // You can use the Decorator pattern to compose a configuration object:
+
+            /*
+            var configFilePath = HttpContext.Current.Server.MapPath("~/Config.ini");
+
             builder
                 .Register(c => 
                     new EnvironmentVariablesConfiguration(
-                        new WebConfigConfiguration()))
+                        new TextFileConfiguration(
+                            configFilePath,
+                            new WebConfigConfiguration())))
                 .As<IConfiguration>();
 
-            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            */
 
+            // 2. FLUENT BUILDER PATTERN:
+            // -------------------------
+            // Or you can wrap it with a fluent builder pattern and compose it like this:
+
+            var configuration =
+                ConfigurationBuilder.Create()
+                .UseWebConfig()
+                .UseTextFileConfig()
+                .UseEnvironmentVariablesConfig();
+
+            builder.RegisterInstance(configuration).As<IConfiguration>();
+
+
+
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
             DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
         }
     }

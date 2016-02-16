@@ -14,10 +14,10 @@ namespace AspNet46ConfigurationDemo.Controllers
 
         public ActionResult Index()
         {
-            // Reading a value from the config file.
+            // Reading a value from the config.
             // In a real world application you would usually read values such as
             // connection strings, but in this simple example I just read a text
-            // which I output to the user to proof the point that it works.
+            // which I output to the user to proof the basic concept works.
             var greetingText = _config.Get("GreetingText");
 
             return Content(greetingText);

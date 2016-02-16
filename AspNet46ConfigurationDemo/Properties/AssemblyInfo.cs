@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -8,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AspNet46ConfigurationDemo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Gamesys Ltd")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("AspNet46ConfigurationDemo")]
-[assembly: AssemblyCopyright("Copyright © Gamesys Ltd 2016")]
+[assembly: AssemblyCopyright("Copyright © Dustin Moris Gorski 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

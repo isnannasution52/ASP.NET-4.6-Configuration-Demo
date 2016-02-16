@@ -6,8 +6,7 @@ namespace AspNet46ConfigurationDemo.Configuration
     {
         private readonly IConfiguration _backupConfiguration;
 
-        public EnvironmentVariablesConfiguration(
-            IConfiguration backupConfiguration)
+        public EnvironmentVariablesConfiguration(IConfiguration backupConfiguration = null)
         {
             _backupConfiguration = backupConfiguration;
         }
@@ -15,7 +14,7 @@ namespace AspNet46ConfigurationDemo.Configuration
         public string Get(string key)
         {
             var value = Environment.GetEnvironmentVariable(key);
-            return value ?? _backupConfiguration.Get(key);
+            return value ?? _backupConfiguration?.Get(key);
         }
     }
 }
